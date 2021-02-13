@@ -17,6 +17,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel.getJobs()
+        viewModel.getJobs(mapOf("description" to "Google","location" to "", "full_time" to "on"))
     }
 }

@@ -6,7 +6,7 @@ import retrofit2.Retrofit
 
 object JobRepo {
 
-    suspend fun getJobs(): List<Job> {
-        return RetrofitInstance.jobService.getJobs()
+    suspend fun getJobs(queryMap : Map<String, String>): List<Job> {
+        return RetrofitInstance.jobService.getJobs(queryMap)
     }
 }

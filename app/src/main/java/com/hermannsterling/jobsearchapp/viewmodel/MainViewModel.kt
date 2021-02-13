@@ -8,6 +8,7 @@ import com.hermannsterling.jobsearchapp.model.Job
 import com.hermannsterling.jobsearchapp.repo.JobRepo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import retrofit2.http.QueryMap
 
 class MainViewModel : ViewModel() {
     companion object {
@@ -19,9 +20,9 @@ class MainViewModel : ViewModel() {
     val jobs: LiveData<List<Job>>
         get() = _jobs
 
-    fun getJobs() {
+    fun getJobs(queryMap: Map<String, String>) {
         viewModelScope.launch(Dispatchers.IO) {
-            val jobs = JobRepo.getJobs()
+            val jobs = JobRepo.getJobs(queryMap)
             _jobs.postValue(jobs)
         }
     }

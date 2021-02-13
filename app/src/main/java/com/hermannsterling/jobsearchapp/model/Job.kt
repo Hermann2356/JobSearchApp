@@ -8,15 +8,15 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 @JsonClass(generateAdapter = true)
 data class Job(
-    val id: String,
-    val type: String,
-    val url: String,
+    val id: String?,
+    val type: String?,
+    val url: String?,
     @Json(name = "created_at")
-    val createdAt: String,
-    val company: String,
+    val createdAt: String?,
+    val company: String?,
     @Json(name = "company_url")
-    val companyUrl: String,
-    val location: String,
-    val title: String,
-    val description : String
+    val companyUrl: String?,
+    val location: String?,
+    val title: String?,
+    val description : String?
 ) : Parcelable {}

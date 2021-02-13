@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">JobSearchApp</string>
+    <string name="job_search">JOB SEARCH</string>
 </resources>
