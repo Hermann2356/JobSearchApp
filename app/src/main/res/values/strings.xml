@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">JobSearchApp</string>
     <string name="job_search">JOB SEARCH</string>
+    <string name="job_description_hint">Filter by title, benefits, companies, expertise</string>
+    <string name="location_hint">Filter by city, state, zip code, or country</string>
+    <string name="full_time">Full Time</string>
+    <string name="search">Search</string>
 </resources>
