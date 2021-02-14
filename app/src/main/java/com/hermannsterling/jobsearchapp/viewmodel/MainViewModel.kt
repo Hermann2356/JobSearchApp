@@ -14,11 +14,21 @@ class MainViewModel : ViewModel() {
     companion object {
         private const val TAG = "MainModelView"
     }
+    lateinit var selectedJob : Job
+
 
     private val _jobs = MutableLiveData<List<Job>>()
+    private val _launchDescriptionFragment = MutableLiveData<Boolean>()
+
+    val launchDescriptionFragment : LiveData<Boolean>
+        get() = _launchDescriptionFragment
 
     val jobs: LiveData<List<Job>>
         get() = _jobs
+
+    fun setLaunchDescriptionFragment(bool : Boolean) {
+        _launchDescriptionFragment.value = bool
+    }
 
     fun getJobs(queryMap: Map<String, String>) {
         viewModelScope.launch(Dispatchers.IO) {

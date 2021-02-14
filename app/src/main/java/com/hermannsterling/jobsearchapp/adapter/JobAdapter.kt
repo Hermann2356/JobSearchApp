@@ -28,6 +28,8 @@ class JobAdapter(@NonNull private val jobs: List<Job>, private val listener: Job
         position: Int
     ) {
         val job = jobs[position]
+        holder.setJob(job)
+        holder.setClick(job)
     }
 
     override fun getItemCount(): Int {
@@ -40,8 +42,18 @@ class JobAdapter(@NonNull private val jobs: List<Job>, private val listener: Job
     ) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun setJokeText(@NonNull job: Job) {}
+       fun setJob(job : Job) {
+           binding.tvCompany.text = "${job.company} - "
+           binding.tvJobTitle.text = job.title
+           binding.tvLocation.text = job.location
+           binding.tvTimeFrame.text = job.createdAt
+           binding.tvFullTime.text = job.type
+       }
 
-        fun setOnClick(@NonNull job: Job) {}
+        fun setClick(@NonNull job: Job) {
+            binding.tvJobTitle.setOnClickListener{
+                listener.itemClicked(job)
+            }
+        }
     }
 }

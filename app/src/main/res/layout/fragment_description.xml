@@ -1,6 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:menu="@menu/top_app_bar"
+            app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+            app:title="Job" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/red_200"
+        app:layout_constraintTop_toBottomOf="@id/app_bar_layout">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/sv_logo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@color/purple_700"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_company"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="netamorphosis"
+            app:layout_constraintLeft_toRightOf="@+id/sv_logo"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_company_url"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="https://netamorphosis.com/"
+            app:layout_constraintLeft_toRightOf="@+id/sv_logo"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_company" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_how_to_apply"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/sv_logo"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_company_url" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/container_top">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            tools:text="Our Technical Manager will guide all phases of the system development and
+            implementation process including: developer management, testing and ongoing support of
+            our client digital platforms. You will oversee overarching development product roadmaps
+            across multiple brands and sites, work closely with our project managers to make updates
+            and additions to our client products to drive their overall business performance.
+            You will be the liaison between our external development teams, internal design and
+            product teams and our clients, so you have the technical expertise to architect
+            solutions in addition to the communication skills to explain them and your process to a
+            non-technical audience. You should not be afraid to get your hands dirty when needed,
+            so familiarity with web infrastructure and development are a plus. You lead by example
+            and can show how it’s done, setting and evolving development policies and standards as
+            technology evolves. You are a strategic product owner, a team player and a skilled
+            client partner all rolled into one. You’ll be a proactive thinker, collaborative
+            problem solver, as well as, an engaging client and team builder." />
+
+    </ScrollView>
+    <!--    <com.google.android.material.textview.MaterialTextView-->
+    <!--        android:id="@+id/tv_job_title"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/tv_type_location"-->
+    <!--        app:layout_constraintRight_toLeftOf="@+id/sv_logo"-->
+    <!--        tools:text = "Experienced mobile developer (iOS/Android)"-->
+    <!--        android:textAppearance="?textAppearanceHeadline6"-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

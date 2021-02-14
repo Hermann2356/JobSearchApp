@@ -18,5 +18,15 @@ data class Job(
     val companyUrl: String?,
     val location: String?,
     val title: String?,
-    val description : String?
-) : Parcelable {}
+    val description : String?,
+    @Json(name = "how_to_apply")
+    val howToApply : String?,
+    @Json(name = "company_logo")
+    val companyLogo : String?
+) : Parcelable {
+    override fun toString(): String {
+        return "Job(id=$id, \ntype=$type, \nurl=$url, \ncreatedAt=$createdAt, " +
+                "\ncompany=$company, \ncompanyUrl=$companyUrl, \nlocation=$location, " +
+                "\ntitle=$title, \ndescription=$description)"
+    }
+}
