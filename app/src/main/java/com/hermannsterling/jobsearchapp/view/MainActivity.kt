@@ -22,18 +22,16 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
     private fun loadSearchFragment() {
 
         supportFragmentManager
             .beginTransaction()
             .add(
                 R.id.container,
-                SearchFragment.newInstance("Hello from Example"),
+                SearchFragment.newInstance(),
                 "SearchFragment"
             )
             .commit()
-
     }
 }
 

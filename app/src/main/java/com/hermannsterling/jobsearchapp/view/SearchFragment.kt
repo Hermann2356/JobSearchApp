@@ -12,16 +12,15 @@ import com.hermannsterling.jobsearchapp.adapter.JobAdapter
 import com.hermannsterling.jobsearchapp.adapter.JobClickListener
 import com.hermannsterling.jobsearchapp.databinding.FragmentSearchBinding
 import com.hermannsterling.jobsearchapp.model.Job
+import com.hermannsterling.jobsearchapp.utils.Constants
 import com.hermannsterling.jobsearchapp.viewmodel.MainViewModel
 
 class SearchFragment : Fragment(), JobClickListener {
     private val viewModel by viewModels<MainViewModel>()
-    private lateinit var binding : FragmentSearchBinding
-    private var msg = ""
+    private lateinit var binding: FragmentSearchBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        msg = arguments?.getString(MSG_KEY, "") ?: ""
     }
 
     override fun onCreateView(
@@ -33,21 +32,36 @@ class SearchFragment : Fragment(), JobClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initViews()
+    }
+
+    private fun initViews() {
         binding.rvJobList.layoutManager = LinearLayoutManager(binding.rvJobList.context)
 
         viewModel.jobs.observe(viewLifecycleOwner) {
-           val jobAdapter = JobAdapter(it, this)
+            val jobAdapter = JobAdapter(it, this)
             binding.rvJobList.adapter = jobAdapter
         }
-        viewModel.getJobs(mapOf("description" to "Google","location" to "", "full_time" to "on"))
+
+        binding.btnSearch.setOnClickListener {
+            val description = binding.etDescriptionSearch.text.toString()
+            val location = binding.etLocationSearch.text.toString()
+            val fullTime = if (binding.cbFullTime.isChecked) "on" else ""
+            viewModel.getJobs(
+                mapOf(
+                    Constants.PARAM_DESCRIPTION to description,
+                    Constants.PARAM_LOCATION to location,
+                    Constants.PARAM_FULL_TIME to fullTime
+                )
+            )
+
+        }
     }
 
     companion object {
-        private const val MSG_KEY = "MSG_KEY"
+
         @JvmStatic
-        fun newInstance(msg: String) = SearchFragment().apply {
-            arguments = Bundle().apply { putString(MSG_KEY, msg) }
-        }
+        fun newInstance() = SearchFragment()
     }
 
     override fun itemClicked(job: Job) {
@@ -55,11 +69,16 @@ class SearchFragment : Fragment(), JobClickListener {
         requireActivity()
             .supportFragmentManager
             .beginTransaction()
+            .addToBackStack(null)
             .replace(
                 R.id.container,
                 DescriptionFragment.newInstance(job),
                 "DescriptionFragment"
             )
-            .commitNow()
+            .commit()
+    }
+
+    override fun toString(): String {
+        return "Search Fragment"
     }
 }

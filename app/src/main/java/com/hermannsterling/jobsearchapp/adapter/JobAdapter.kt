@@ -51,7 +51,7 @@ class JobAdapter(@NonNull private val jobs: List<Job>, private val listener: Job
        }
 
         fun setClick(@NonNull job: Job) {
-            binding.tvJobTitle.setOnClickListener{
+            binding.root.setOnClickListener{
                 listener.itemClicked(job)
             }
         }
