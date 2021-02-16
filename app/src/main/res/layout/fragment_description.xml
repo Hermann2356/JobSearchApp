@@ -29,45 +29,85 @@
         android:id="@+id/container_top"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/red_200"
         app:layout_constraintTop_toBottomOf="@id/app_bar_layout">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/sv_logo"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:background="@color/purple_700"
+            android:id="@+id/logo_img"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/item_constraint_layout"
             android:padding="5dp"
-            android:scaleType="centerInside"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/tv_job_title"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!--        <com.google.android.material.textview.MaterialTextView-->
-        <!--            android:id="@+id/tv_company"-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="netamorphosis"-->
-        <!--            app:layout_constraintLeft_toRightOf="@+id/sv_logo"-->
-        <!--            app:layout_constraintRight_toRightOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="parent" />-->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_job_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:textColor="?colorPrimary"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/logo_img"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Lead Engineer(Remote)" />
 
-        <!--        <com.google.android.material.textview.MaterialTextView-->
-        <!--            android:id="@+id/tv_company_url"-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="https://netamorphosis.com/"-->
-        <!--            app:layout_constraintLeft_toRightOf="@+id/sv_logo"-->
-        <!--            app:layout_constraintRight_toRightOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@id/tv_company" />-->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_company"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintLeft_toRightOf="@id/logo_img"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_job_title"
+            tools:text="GetThru - " />
 
-        <!--        <com.google.android.material.textview.MaterialTextView-->
-        <!--            android:id="@+id/tv_how_to_apply"-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="0dp"-->
-        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--            app:layout_constraintLeft_toRightOf="@+id/sv_logo"-->
-        <!--            app:layout_constraintRight_toRightOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@id/tv_company_url" />-->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_full_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:textColor="@color/green_500"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@+id/logo_img"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_company"
+            tools:text="Full Time" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintLeft_toRightOf="@id/logo_img"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_full_time"
+            tools:text="Anywhere in the United States" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_apply"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:autoLink="web"
+            android:linksClickable="true"
+            android:hint="How to apply"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/logo_img"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_location"
+            tools:text="How to apply" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
@@ -85,7 +125,9 @@
                 android:id="@+id/tv_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:layout_marginTop="20dp"
+                android:autoLink="web"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Our Technical Manager will guide all phases of the system development and
             implementation process including: developer management, testing and ongoing support of

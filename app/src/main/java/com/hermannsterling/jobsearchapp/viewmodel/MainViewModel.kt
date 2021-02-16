@@ -34,6 +34,7 @@ class MainViewModel : ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             val jobs = JobRepo.getJobs(queryMap)
             _jobs.postValue(jobs)
+
         }
     }
 

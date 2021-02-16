@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.hermannsterling.jobsearchapp.databinding.ItemJobBinding
 import com.hermannsterling.jobsearchapp.model.Job
 
@@ -43,10 +44,14 @@ class JobAdapter(@NonNull private val jobs: List<Job>, private val listener: Job
         RecyclerView.ViewHolder(binding.root) {
 
        fun setJob(job : Job) {
-           binding.tvCompany.text = "${job.company} - "
+           Glide.with(binding.root)
+               .load(job.companyLogo)
+               .into(binding.logoImg);
+
+           binding.tvCompany.text = "${job.company}"
            binding.tvJobTitle.text = job.title
            binding.tvLocation.text = job.location
-           binding.tvTimeFrame.text = job.createdAt
+          // binding.tvTimeFrame.text = job.createdAt
            binding.tvFullTime.text = job.type
        }
 

@@ -1,8 +1,11 @@
 package com.hermannsterling.jobsearchapp.view
 
+import android.graphics.Color
 import android.location.Geocoder
 import android.os.Bundle
 import android.text.Html
+import android.text.method.LinkMovementMethod
+import android.text.util.Linkify
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -53,8 +56,21 @@ class DescriptionFragment : Fragment(), OnMapReadyCallback {
     private fun initView() {
         Glide.with(binding.root)
             .load(job.companyLogo)
-            .into(binding.svLogo);
+            .into(binding.logoImg);
+//        binding.apply {
+//            tvCompany.text = job.company
+//            tvJobTitle.text = job.title
+//            tvLocation.text = job.location
+//            tvApply.text = Html.fromHtml(job.howToApply)
+//            tvDescription.text = Html.fromHtml(job.description)
+//        }
+        binding.tvCompany.text = job.company
+        binding.tvJobTitle.text = job.title
+        binding.tvLocation.text = job.location
+        binding.tvApply.text = Html.fromHtml(job.howToApply)
         binding.tvDescription.text = Html.fromHtml(job.description)
+        binding.tvApply.movementMethod = LinkMovementMethod.getInstance()
+        binding.tvDescription.movementMethod = LinkMovementMethod.getInstance()
 
         binding.topAppBar.setNavigationOnClickListener {
             val count = requireActivity().supportFragmentManager.fragments.size

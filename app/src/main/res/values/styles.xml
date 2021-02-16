@@ -17,6 +17,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!--Components-->
+    <style name="JobTitle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">?textAppearanceHeadline4</item>
+    </style>
+
 
     <!--Bottom Sheets-->
     <style name="ThemeOverlay.MyTheme.BottomSheetDialog" parent="ThemeOverlay.MaterialComponents.Dialog">
@@ -38,6 +42,11 @@
     <!--Navigation Drawer-->
     <style name="Widget.MyTheme.NavigationView" parent="Widget.MaterialComponents.NavigationView">
         <item name="itemTextAppearance">?attr/textAppearanceBody2</item>
+    </style>
+
+    <style name="Base.Theme.MyApp.Outline" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="strokeWidth">4dp</item>
+        <item name="android:solidColor">?colorPrimary</item>
     </style>
 
 </resources>

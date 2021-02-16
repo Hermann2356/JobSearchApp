@@ -6,13 +6,26 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
     android:layout_marginBottom="10dp"
-    >
+    android:background="@drawable/item_constraint_layout"
+    android:padding="10dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/logo_img"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_job_title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="5dp"
+        android:textColor="?colorPrimary"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/logo_img"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Lead Engineer(Remote)" />
 
@@ -20,35 +33,39 @@
         android:id="@+id/tv_company"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="5dp"
+        app:layout_constraintLeft_toRightOf="@id/logo_img"
         app:layout_constraintTop_toBottomOf="@+id/tv_job_title"
         tools:text="GetThru - " />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_full_time"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@+id/tv_company"
-        app:layout_constraintBottom_toBottomOf="@id/tv_company"
-        app:layout_constraintLeft_toRightOf="@+id/tv_company"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/green_500"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@+id/logo_img"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_company"
         tools:text="Full Time" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="5dp"
+        app:layout_constraintLeft_toRightOf="@id/logo_img"
+        app:layout_constraintTop_toBottomOf="@id/tv_full_time"
         tools:text="Anywhere in the United States" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_time_frame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/tv_location"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_location"
+        app:layout_constraintTop_toTopOf="@id/tv_location"
         tools:text="about 23 hours ago" />
 
 
